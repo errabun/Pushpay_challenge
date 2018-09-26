@@ -5,10 +5,10 @@
 Your client has tasked you with making the ultimate Moviegoers Guide. They are asking for an app that:
 
 - Shows the user a list of the movies where the user can sort by Now Playing, Popular, and Top Rated.
-
 - Allows the user to select a movie and see more details. The more details, the better.
 
 Best of all is the client has given you full creative control. Make the Moviegoers Guide the best looking app out there.
+Feel free to use any front-end framework of your choice - React, React-Native, Vue, Angular, Ember etc.
 
 ## API
 
