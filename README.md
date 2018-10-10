@@ -8,6 +8,7 @@ Your client has tasked you with making the Ultimate Moviegoers Guide. They are a
   * Now Playing
   * Popular
   * Top Rated
+* Allows the user to search for a movie
 * Allows the user to select a movie and see more details. The more details, the better.
 
 Best of all is the client has given you full creative control.
