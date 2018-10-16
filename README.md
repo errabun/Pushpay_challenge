@@ -2,7 +2,7 @@
 
 ## Overview
 
-Your client has tasked you with making the Ultimate Moviegoers Guide. They are asking for an app that:
+Your client has tasked you with making the Ultimate Moviegoers Guide using _The Movie Database API_. They are asking for an app that at least covers the following:
 
 * Shows the user a list of movies where the user can sort by
   * Now Playing
