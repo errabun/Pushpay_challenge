@@ -15,6 +15,14 @@ Best of all is the client has given you full creative control.
 Make the Ultimate Moviegoers Guide the best looking app out there.
 Feel free to use any front-end framework of your choice - React, React-Native, Vue, Vue Native, Angular, Ember etc.
 
+### Keep in mind the following questions
+
+* What design patterns did you use?
+* How would you test your application?
+* How do you manage/store application state?
+* What ways could you structure the code to make it easy to understand and maintain?
+* What other considerations and tradeoffs did you make when building the application?
+
 ## API
 
 [Sign Up](https://www.themoviedb.org/account/signup) for an account with 'The Movie Database.'
