@@ -3,8 +3,9 @@ name: Publish Github Pages
 on:
   push:
     branches:
-      - main
-      - master
+      # Put these back to enable publishing to github pages
+      # - main
+      # - master
 
 jobs:
   deploy:
