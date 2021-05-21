@@ -8,7 +8,8 @@ function People() {
   const [people, setPeople] = React.useState<PersonType[]>([])
 
   React.useEffect(() => {
-    fetchJson('people').then(peopleResponse => setPeople(peopleResponse.results))
+    fetchJson<{ results: PersonType[] }>('people')
+      .then(peopleResponse => setPeople(peopleResponse.results))
   }, [])
 
   return (
