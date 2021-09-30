@@ -1,8 +1,12 @@
+import SearchBar from '../SearchBar/SearchBar'
 import './Header.css'
 
 function Header() {
   return (
-    <h1>Folks of Star Wars</h1>
+    <div>
+      <h1>Folks of Star Wars</h1>
+      <SearchBar />
+    </div>
   )
 }
 
