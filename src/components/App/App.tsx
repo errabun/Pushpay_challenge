@@ -1,8 +1,12 @@
 import People from '../People';
+import Header from '../Header/Header'
 
 function App() {
   return (
-    <People />
+    <div>
+      <Header />
+      <People />
+    </div>
   );
 }
 
