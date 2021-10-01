@@ -15,9 +15,7 @@ function Person({ person }: PersonProps) {
     (async () => {
       await getPersonInfo(person).then(data => setPersonInfo(data)) 
     })()
-  }, [])
-
-  console.log(personInfo)
+  }, [person])
 
   return (
     <div className='person-card'>
@@ -29,7 +27,7 @@ function Person({ person }: PersonProps) {
         <li>Homeworld: {person.homeworld}</li>
       </ul>
       <h4>Films:</h4>
-      <p>{person.films.map(film => { return <li>{film}</li> })} </p>
+      {person.films.map(film => { return <li>{film}</li> })}
     </div>
   )
 }

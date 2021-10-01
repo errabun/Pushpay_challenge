@@ -7,3 +7,5 @@ export interface PersonType {
   films: string[]
   species: string
 }
+
+export type OnSubmit = {onSubmit: (query: string, e: {preventDefault:() => void}) => void}

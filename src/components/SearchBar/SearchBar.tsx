@@ -1,12 +1,9 @@
 import { useState } from 'react'
+import { OnSubmit } from '../../types'
 
-function SearchBar() {
+function SearchBar({ onSubmit }: OnSubmit): JSX.Element {
 
   const [query, setQuery] = useState('')
-
-  const getQuery = (e: string) => {
-    const inputData = query
-  }
 
   const searchInput = (e: { target: { value: string } }) => {
     setQuery(e.target.value)
@@ -22,7 +19,7 @@ function SearchBar() {
             value={query}
             onChange={event => searchInput(event)} >
           </input>
-          <button className='submit-search' onClick={event => console.log(event)}>SEARCH</button>
+          <button className='submit-search' onClick={(e) => onSubmit(query, e)}>SEARCH</button>
         </form>
       </div>
   )

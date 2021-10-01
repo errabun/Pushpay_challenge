@@ -16,7 +16,7 @@ export async function fetchJson<Response = any>(url: string, init?: RequestInit)
 
 export async function getPersonInfo(person: PersonType) {
 
-  if (person.species.length === 0) {
+  if (!person.species.length) {
     person.species = "Human";
   } else {
     const species = await fetchJson<{ name: string }>(
@@ -24,7 +24,7 @@ export async function getPersonInfo(person: PersonType) {
     );
     person.species = species.name;
   }
-  
+
   const homeworld = await fetchJson<{ name: string }>(
     person.homeworld.substring("https://swapi.dev/api/".length)
   );
@@ -39,3 +39,4 @@ export async function getPersonInfo(person: PersonType) {
 
   return person;
 }
+
