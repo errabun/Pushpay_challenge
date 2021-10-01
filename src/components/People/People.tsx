@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import { fetchJson } from '../../api'
 import { PersonType } from '../../types'
 import Person from '../Person'
@@ -11,7 +11,7 @@ function People() {
   const [searchError, setSearchError] = useState('')
   const [peopleSearch, setPeopleSearch] = useState<PersonType[]>([])
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchJson<{ results: PersonType[] }>('people')
       .then(peopleResponse => setPeople(peopleResponse.results))
   }, [])
@@ -34,6 +34,7 @@ function People() {
       <div className='person-container'>
         {!searchError && !peopleSearch.length && people.map(person => <Person person={person} />)}
         {!searchError && peopleSearch.map(person => <Person person={person} />)}
+        {searchError}
       </div>
     </>
   )

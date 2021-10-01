@@ -40,3 +40,11 @@ export async function getPersonInfo(person: PersonType) {
   return person;
 }
 
+export async function getPeopleByPage(page: number) {
+  const response = await fetchJson<{ data: PersonType[]; nextPage: string}>(
+    `people/?page=${page}`
+  )
+  return { people: response.data, nextPage: response.nextPage }
+}
+
+
