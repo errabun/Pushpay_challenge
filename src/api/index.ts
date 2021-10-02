@@ -47,4 +47,7 @@ export async function getPeopleByPage(page: number) {
   return { people: response.data, nextPage: response.nextPage }
 }
 
-
+export async function searchChars(query: string) {
+  const response = await fetch(`https://swapi.dev/api/people/?search=${query}`)
+  return response.json()
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { fetchJson } from '../../api'
+import { fetchJson, searchChars } from '../../api'
 import { PersonType } from '../../types'
 import Person from '../Person'
 import SearchBar from '../SearchBar/SearchBar'
@@ -18,14 +18,7 @@ function People() {
 
   const submitSearch = (query: string, e: {preventDefault: () => void}): void => {
     e.preventDefault()
-    const findPeople = people.filter(person => {
-      const lowerName = person.name.toLowerCase()
-      return lowerName.includes(query.toLowerCase())
-    })
-    if(!findPeople.length) {
-      setSearchError('No characters found, please try again!')
-    }
-    setPeopleSearch(findPeople)
+    searchChars(query).then(data => setPeopleSearch(data.results))
   }
 
   return (
