@@ -18,7 +18,10 @@ function People() {
 
   const submitSearch = (query: string, e: {preventDefault: () => void}): void => {
     e.preventDefault()
-    searchChars(query).then(data => setPeopleSearch(data.results))
+    searchChars(query).then(data => {
+      setPeopleSearch(data.results); 
+      if (!data.results.length) {setSearchError('No characters were found, please try again!')}
+    })
   }
 
   return (
