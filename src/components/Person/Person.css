@@ -27,3 +27,9 @@ li {
   font-size: medium;
 }
 
+@media only screen and (max-width:800px) {
+  .person-card {
+    width: 85%; 
+  }
+}
+
