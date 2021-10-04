@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { OnSubmit } from '../../types'
+import './SearchBar.css'
 
 function SearchBar({ onSubmit }: OnSubmit): JSX.Element {
 

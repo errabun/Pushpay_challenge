@@ -1,4 +1,16 @@
 .person-container {
   display: grid; 
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-image: url('https://i.ytimg.com/vi/9Pcari_wEs8/maxresdefault.jpg');
+  background-size: cover; 
+  background-repeat: no-repeat;
+}
+
+.next {
+  border: #87e7ff solid 3px;
+  border-radius: 15px;
+  height: 2vw;
+  background-color: whitesmoke;
+  color: #240059;
+  font-size: 1rem;
 }

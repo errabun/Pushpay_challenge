@@ -41,13 +41,15 @@ export async function getPersonInfo(person: PersonType) {
 }
 
 export async function getPeopleByPage(page: number) {
-  const response = await fetchJson<{ data: PersonType[]; nextPage: string}>(
-    `people/?page=${page}`
-  )
-  return { people: response.data, nextPage: response.nextPage }
+  const response = await fetch(`https://swapi.dev/api/people/?page=${page}`)
+  return response.json()
 }
 
 export async function searchChars(query: string) {
   const response = await fetch(`https://swapi.dev/api/people/?search=${query}`)
-  return response.json()
+  if(response.ok) {
+    return response.json()
+  } else {
+    throw new Error("Couldn't fetch any characters, please try again!")
+  }
 }

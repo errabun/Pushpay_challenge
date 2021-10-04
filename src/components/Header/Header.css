@@ -3,6 +3,10 @@
   align-items: center;
   justify-content: space-between;
   background-color: aqua;
-  border-bottom: 3px solid black;
-  border-top: 3px solid black;
+  border-bottom: 3px solid #240059;
+  border-top: 3px solid #240059;
+}
+
+.title {
+  color: #240059;
 }
