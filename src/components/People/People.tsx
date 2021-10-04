@@ -46,11 +46,19 @@ function People() {
         {!searchError && peopleSearch.map(person => <Person person={person} key={person.name} />)}
         {searchError && <div className='error'>{searchError}</div>}
       </div>
-      <div>
-        {currentPage<9 && !searchError && <button onClick={() => displayNextPage('next')}>
-          See Next Page 
+      <div className='btn-nav'>
+        {currentPage>1 && !searchError && 
+        <button 
+          onClick={() => displayNextPage('previous')}
+          className='nav'
+          >Previous Page
         </button>}
-        {currentPage>1 && <button onClick={() => displayNextPage('previous')}>See Previous Page</button>}
+        {currentPage<9 && !searchError && 
+          <button 
+            onClick={() => displayNextPage('next')}
+            className='nav'
+          >Next Page 
+          </button>}
       </div>
   </>
   )

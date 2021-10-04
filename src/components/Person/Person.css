@@ -8,3 +8,22 @@
   border: 3px solid lightgray;
   background-color: azure;
 }
+
+h2 {
+  font-size: x-large;
+}
+
+h3 {
+  font-size: large;
+}
+
+li {
+  font-size: medium; 
+}
+
+.accordion-button {
+  border-radius: 15px;
+  padding: 6px; 
+  font-size: medium;
+}
+
