@@ -48,17 +48,18 @@ function People() {
       </div>
       <div className='btn-nav'>
         {currentPage>1 && !searchError && 
-        <button 
-          onClick={() => displayDifferentPage('previous')}
-          className='nav'
-          >Previous Page
-        </button>}
+          <button 
+            onClick={() => displayDifferentPage('previous')}
+            className='nav'
+            >Previous Page
+          </button>}
         {currentPage<9 && !searchError && 
           <button 
             onClick={() => displayDifferentPage('next')}
             className='nav'
           >Next Page 
           </button>}
+          <p>{currentPage} of 9</p>
       </div>
   </>
   )
