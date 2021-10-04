@@ -19,21 +19,19 @@ This application utilizes the swapi API, which is an API that stores loads of in
 4. Run npm start to begin the server
 5. Application should be shown in separate window (http://localhost:3000/) once npm start is complete
 
-## Images
-
 ## Questions
 
-* What design patterns did you use?
+### What design patterns did you use?
  - I utilized a grid structure to display each of the characters in individual 'person cards' that housed all the information for each particular character.  I attempted to keep each card relatively small as each most pieces of information require a separate api request.  As well, I utilized media queries for smaller screens (tablets & mobile devices) to make the grid and search functionality responsive for easy use on all different types devices. I used conditional rendering in most components to display information based on pieces of state that were being stored in the application. 
-* How would you test your application? (Testing still in progress...)
+### How would you test your application? (Testing still in progress...)
  - I am hoping to build testing to ensure that each component renders correctly, including the display of different pieces of information for each character.  As well, tests to verify the search functions correctly based on a search input by the user. 
-* How do you manage/store application state?
+### How do you manage/store application state?
  - The goal for any project is to keep state easy to manage and update.  To accomplish this in the application I kept only a few inputs in state including the list of people to be displayed, the search results, the current page being viewed and some error handling message to be displayed upon a search that did not return any results.  Each piece of state can be easily manipulated. By utilizing a react-bootstrap accordion menu to display the film appearances for each character, I was able to display just some of the facts for each character and limit the number of API requests & loading time for the entire application. 
-* What ways could you structure the code to make it easy to understand and maintain?
+### What ways could you structure the code to make it easy to understand and maintain?
  - I attempted to keep the code easy to understand and maintain by using proper naming conventions, creating separate and reuseable components, and grouping functions that were only relavent to each component.  Trying to follow the best practices that I've learned to the best of my knowledge.  Keeping a modular file structure and separating css files into each component folder for easy understanding.  
-* What other considerations and tradeoffs did you make when building the application?
+### What other considerations and tradeoffs did you make when building the application?
  - There were several considerations to take into account during the building of this application including limited the number of requests, only displaying specific information for each character, and utilizing the api search functionality that is provided.  The api is setup so that most of the pieces of information for each character require a separate fetch request, so I tried to consider how to make the app as fast and efficient as possible by limited the information for each character.  Given the short amount of time to complete the application, it would have been nice to have more time to make the search functionality more robust (to search for species, starships, film appearances, etc) instead of just being able to search by character name.  As well, I would have liked to add more testing and styling to make the user interface more pleasant and bug free. 
-* How are you describing and typing API data?
+### How are you describing and typing API data?
  - I did my best to keep the api data as minimal as possible.  Swapi has so much information for each character including very specific information for each 'fact', so limiting the number of requests was essential.  As well, I did my best to use proper naming conventions for future development and developer empathy.  
 
 ## Reflections
