@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { getPersonInfo } from '../../api';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Person.css'
-import { Accordion, Card } from 'react-bootstrap';
+import { Accordion } from 'react-bootstrap';
 
 interface PersonProps {
   person: PersonType
@@ -30,7 +30,7 @@ function Person({ person }: PersonProps) {
       <Accordion>
         <Accordion.Item eventKey='0'>
           <Accordion.Header>Film Appearances</Accordion.Header>
-          <Accordion.Body>{person.films.map(film => <li>{film}</li>)}</Accordion.Body>
+          <Accordion.Body>{person.films.map(film => <li key={film}>{film}</li>)}</Accordion.Body>
         </Accordion.Item>
       </Accordion>
     </div>

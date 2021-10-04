@@ -24,7 +24,7 @@ function People() {
     })
   }
 
-  const displayNextPage = async (direction: string) => {
+  const displayDifferentPage = async (direction: string) => {
     if(direction === 'next') {
       await getPeopleByPage(currentPage + 1).then(peopleResponse => {
         setPeople(peopleResponse.results); 
@@ -49,13 +49,13 @@ function People() {
       <div className='btn-nav'>
         {currentPage>1 && !searchError && 
         <button 
-          onClick={() => displayNextPage('previous')}
+          onClick={() => displayDifferentPage('previous')}
           className='nav'
           >Previous Page
         </button>}
         {currentPage<9 && !searchError && 
           <button 
-            onClick={() => displayNextPage('next')}
+            onClick={() => displayDifferentPage('next')}
             className='nav'
           >Next Page 
           </button>}
