@@ -18,9 +18,10 @@ function SearchBar({ onSubmit }: OnSubmit): JSX.Element {
             placeholder='Search characters'
             name='query'
             value={query}
-            onChange={event => searchInput(event)} >
+            onChange={e => searchInput(e)} >
           </input>
-          <button className='submit-search' onClick={(e) => onSubmit(query, e)}>SEARCH</button>
+          <button className='submit-search' onClick={(e) => onSubmit(query, e)}>Search</button>
+          <button className='submit-search' onClick={() => setQuery('')}>Clear Search</button>
         </form>
       </div>
   )

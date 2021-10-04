@@ -14,3 +14,8 @@
   color: #240059;
   font-size: 1rem;
 }
+
+.error {
+  color: whitesmoke;
+  font-size: x-large;
+}

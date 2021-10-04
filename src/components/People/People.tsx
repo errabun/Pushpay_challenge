@@ -24,17 +24,18 @@ function People() {
     })
   }
 
-  const displayNextPage = async () => {
-    if(currentPage <= 9) {
+  const displayNextPage = async (direction: string) => {
+    if(direction === 'next') {
       await getPeopleByPage(currentPage + 1).then(peopleResponse => {
         setPeople(peopleResponse.results); 
         setCurrentPage(currentPage + 1)
       })
-    } 
-    // else {
-    //   const nextBtn: Button = document.getElementsByClassName('next')
-    //   nextBtn.disabled = true
-    // }
+    } else if (direction === 'previous') {
+      await getPeopleByPage(currentPage - 1).then(peopleResponse => {
+        setPeople(peopleResponse.results); 
+        setCurrentPage(currentPage - 1)
+      })
+    }
   }
 
   return (
@@ -42,15 +43,15 @@ function People() {
       <SearchBar onSubmit={submitSearch} />
       <div className='person-container'>
         {!searchError && !peopleSearch.length && people.map(person => <Person person={person} key={person.name} />)}
-        {!searchError && peopleSearch.map(person => <Person person={person} />)}
-        {searchError}
+        {!searchError && peopleSearch.map(person => <Person person={person} key={person.name} />)}
+        {searchError && <div className='error'>{searchError}</div>}
       </div>
-      <button 
-        onClick={() => displayNextPage()}
-        className='next'
-      >
-        See More Characters 
-    </button>
+      <div>
+        {currentPage<9 && !searchError && <button onClick={() => displayNextPage('next')}>
+          See Next Page 
+        </button>}
+        {currentPage>1 && <button onClick={() => displayNextPage('previous')}>See Previous Page</button>}
+      </div>
   </>
   )
 }
