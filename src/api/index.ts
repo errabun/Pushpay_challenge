@@ -10,7 +10,7 @@ export async function fetchJson<Response = any>(url: string, init?: RequestInit)
         'Content-Type': 'application/json',
       }
     })
-
+    
   return response.json()
 }
 

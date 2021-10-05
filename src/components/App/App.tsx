@@ -1,5 +1,5 @@
-import People from '../People';
 import Header from '../Header/Header'
+import People from '../People'
 
 function App() {
   return (

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import { fetchJson, getPeopleByPage, searchChars } from '../../api'
 import { PersonType } from '../../types'
-import Person from '../Person'
 import SearchBar from '../SearchBar/SearchBar'
+import Person from '../Person'
 import './People.css'
 
 function People() {
@@ -38,12 +38,18 @@ function People() {
     }
   }
 
+  const mapPeople = (people: PersonType[]) => {
+    return (
+      people.map(person => <Person person={person} key={person.name} />)
+    )
+  } 
+
   return (
     <>
       <SearchBar onSubmit={submitSearch} />
       <div className='person-container'>
-        {!searchError && !peopleSearch.length && people.map(person => <Person person={person} key={person.name} />)}
-        {!searchError && peopleSearch.map(person => <Person person={person} key={person.name} />)}
+        {!searchError && !peopleSearch.length && mapPeople(people)}
+        {!searchError && mapPeople(peopleSearch)}
         {searchError && <div className='error'>{searchError}</div>}
       </div>
       <div className='btn-nav'>
