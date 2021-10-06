@@ -10,7 +10,7 @@ export async function fetchJson<Response = any>(url: string, init?: RequestInit)
         'Content-Type': 'application/json',
       }
     })
-    
+
   return response.json()
 }
 
@@ -30,14 +30,21 @@ export async function getPersonInfo(person: PersonType) {
   );
   person.homeworld = homeworld.name;
 
-  for (let i = 0; i < person.films.length; i++) {
-    const film = await fetchJson<{ title: string }>(
-      person.films[i].substring("https://swapi.dev/api/".length)
-    );
-    person.films[i] = film.title;
-  }
+  // for (let i = 0; i < person.films.length; i++) {
+  //   const film = await fetchJson<{ title: string }>(
+  //     person.films[i].substring("https://swapi.dev/api/".length)
+  //   );
+  //   person.films[i] = film.title;
+  // }
 
   return person;
+}
+
+export async function getPersonFilms(url: string) {
+  const response = await fetch(url)
+  if(response.ok) {
+    return response.json()
+  }
 }
 
 export async function getPeopleByPage(page: number) {

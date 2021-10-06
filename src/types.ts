@@ -8,4 +8,8 @@ export interface PersonType {
   species: string
 }
 
+export interface PersonProps {
+  person: PersonType
+}
+
 export type OnSubmit = {onSubmit: (query: string, e: {preventDefault:() => void}) => void}

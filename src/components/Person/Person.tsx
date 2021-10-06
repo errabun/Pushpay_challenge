@@ -1,13 +1,8 @@
-import { PersonType } from '../../types';
+import { PersonType, PersonProps } from '../../types';
 import { useEffect, useState } from 'react';
 import { getPersonInfo } from '../../api';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Films } from '../Films/Films'
 import './Person.css'
-import { Accordion } from 'react-bootstrap';
-
-interface PersonProps {
-  person: PersonType
-}
 
 function Person({ person }: PersonProps) {
 
@@ -27,12 +22,7 @@ function Person({ person }: PersonProps) {
       <li>Mass: {person.mass}</li>
       <li>Species: {person.species}</li>
       <li>Homeworld: {person.homeworld}</li>
-      <Accordion>
-        <Accordion.Item eventKey='0'>
-          <Accordion.Header>Film Appearances</Accordion.Header>
-          <Accordion.Body>{person.films.map(film => <li key={film}>{film}</li>)}</Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
+      <Films person={person}/>
     </div>
   )
 }
