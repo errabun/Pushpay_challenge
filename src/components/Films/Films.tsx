@@ -1,46 +1,37 @@
 import { PersonProps } from "../../types";
-import { Accordion, Card, useAccordionButton } from 'react-bootstrap';
-import { useState, useEffect } from 'react' 
+import { Accordion } from 'react-bootstrap';
+import { useState } from 'react' 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { getPersonFilms } from "../../api";
 
-function CustomToggle( {person}: PersonProps ) {
+type PersonFilms = [...string[]]
 
-  const handleClick = useAccordionButton('0', () =>
-    person.films.map(filmUrl => {
-      getPersonFilms(filmUrl).then(data => console.log(data))
-    })
-  )
+export function Films({ person }: PersonProps) {
 
-  return (
-    <button onClick={handleClick}>Film Appearances</button>
-  )
-}
+  const [films, setFilms] = useState<PersonFilms>([])
 
-export const Films = ({ person }: PersonProps) => {
+  const handleClick = async (e: {preventDefault:() => void}) => {
+    e.preventDefault()
 
-  const [films, setFilms] = useState([])
+    const charFilms: string[] = []
+    
+    await Promise.all(person.films.map(async filmUrl => {
+      await getPersonFilms(filmUrl)
+        .then(film => charFilms.push(film.title))
+    }))
+    setFilms(charFilms)
+  }
 
-  // useEffect(() => {
-  //   person.films.map(filmUrl => {
-  //     getPersonFilms(filmUrl).then(data => setFilms(data.title))
-  //   })
-  // }, [])
-
-  
-
-  console.log(films)
+  const listFilms = films.map(film => <li key={film}>{film}</li>)
 
   return (
     <Accordion>
-      <Card>
-        <Card.Header>
-          <CustomToggle person={person}></CustomToggle>
-        </Card.Header>
-        <Accordion.Collapse eventKey ='0'>
-          <Card.Body>this is the body!</Card.Body>
-        </Accordion.Collapse>
-      </Card>
+      <Accordion.Item eventKey='0'>
+        <Accordion.Header onClick={(e) => handleClick(e)}>
+          Film Appearances
+        </Accordion.Header>
+        <Accordion.Body>{listFilms}</Accordion.Body>
+      </Accordion.Item>
     </Accordion>
   )
 }

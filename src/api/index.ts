@@ -2,7 +2,7 @@ import { PersonType } from "../types"
 
 export async function fetchJson<Response = any>(url: string, init?: RequestInit): Promise<Response> {
   const response = await fetch(
-    `https://swapi.dev/api/${url}/`,
+    `https://swapi.dev/api/${url}`,
     {
       ...init ?? {},
       headers: {
@@ -44,6 +44,8 @@ export async function getPersonFilms(url: string) {
   const response = await fetch(url)
   if(response.ok) {
     return response.json()
+  } else {
+    throw new Error("Couldn't fetch any films, please try again!")
   }
 }
 
